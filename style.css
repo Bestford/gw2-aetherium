@@ -3,6 +3,16 @@
   margin-top: 7px;
 }
 
+/* Hide HTML5 input text field "spinners" */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 /* Form calculate button */
 .calculate {
   width: 100%;

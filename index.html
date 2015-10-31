@@ -8,7 +8,7 @@
     <title>Guild Wars 2: Aetherium Calculator</title>
 
     <!-- CSS requirements -->
-    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 
     <!-- JS requirements -->
@@ -27,32 +27,39 @@
       </div>
 
       <!-- Aetherium quantities input fields -->
-      <div class="form-horizontal">
+      <form class="form-horizontal" name="form">
 
-        <div class="form-group large">
+        <div class="form-group large has-feedback" ng-class="{'has-success': form.current.$valid}">
           <label class="col-sm-4 control-label" for="aetherium-current">Current Aetherium</label>
           <div class="col-sm-4">
-            <input type="number" class="form-control input-lg" id="aetherium-current"
-            ng-model="current">
+            <input class="form-control input-lg" type="number" id="aetherium-current" name="current"
+            min="0" max="{{max}}" ng-model="current" ng-pattern="numberValidation" required>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+            ng-show="form.current.$valid"></span>
           </div>
         </div>
 
-        <div class="form-group large">
+        <div class="form-group large has-feedback" ng-class="{'has-success': form.target.$valid}">
           <label class="col-sm-4 control-label" for="aetherium-target">Aetherium Needed</label>
           <div class="col-sm-4">
-            <input type="number" class="form-control input-lg" id="aetherium-target"
-            ng-model="target">
+            <input class="form-control input-lg" type="number" id="aetherium-target" name="target"
+            min="0" max="{{max}}" ng-model="target" ng-pattern="numberValidation" required>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+            ng-show="form.target.$valid"></span>
           </div>
         </div>
 
         <div class="row">
           <div class="col-sm-4"></div>
           <div class="col-sm-4">
-            <button class="btn btn-lg btn-info calculate">Calculate</button>
+            <button class="btn btn-lg btn-success calculate"
+            ng-show="form.$valid" ng-click="calculate()">
+              Calculate
+            </button>
           </div>
         </div>
 
-      </div>
+      </form>
 
       <!-- Explanation / FAQ -->
 
