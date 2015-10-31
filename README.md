@@ -1,4 +1,4 @@
-# Guild Wars 2: Aetherium
+# Guild Wars 2: Aetherium Calculator
 
 ## About
 
