@@ -9,6 +9,7 @@ angular
     // Define scope variables. Undefined variables prevent hoisiting
     $scope.current;
     $scope.target;
+    $scope.rate = '60';
 
     // ngPattern Regex used to prevent use of floats by the user
     $scope.numberValidation = /^\d*$/;
@@ -17,9 +18,14 @@ angular
     $scope.max = 3000;
 
     $scope.calculate = function calculate() {
+
+      // Determine how much more Aetherium is needed
       var difference = $scope.target - $scope.current;
       if (difference < 0) difference = 0;
 
-      alert(difference + ' Aetherium to go.');
+      // Calculate how long until the Aetherium has generated
+      var seconds = difference * parseInt($scope.rate);
+
+      alert(difference + ' Aetherium to go. That is ' + seconds + ' seconds.');
     };
   });
