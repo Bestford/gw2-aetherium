@@ -15,4 +15,11 @@ angular
 
     // Maximum Aetherium capacity. Change this if a future update adds a new capacity upgrade
     $scope.max = 3000;
+
+    $scope.calculate = function calculate() {
+      var difference = $scope.target - $scope.current;
+      if (difference < 0) difference = 0;
+
+      alert(difference + ' Aetherium to go.');
+    };
   });
