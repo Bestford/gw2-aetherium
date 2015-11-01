@@ -13,7 +13,9 @@
 
     <!-- JS requirements -->
     <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/countdown/countdown.min.js"></script>
     <script src="lib/moment/moment.js"></script>
+    <script src="lib/moment/moment-countdown.min.js"></script>
 
     <!-- Angular JS files -->
     <script src="js/app.js"></script>
@@ -74,10 +76,13 @@
       </form>
 
       <!-- Date and time calculation outputs -->
-      <section class="calculations page-header" ng-if="targetDate">
+      <section class="calculations page-header" ng-if="date">
 
         <h4>Your guild will have enough Aetherium on:</h4>
-        <h2>{{targetFormat}}</h2>
+        <h2>{{dateDisplay}}</h2>
+
+        <h4>That's in:</h4>
+        <h2>{{dateCountdown}}</h2>
 
       </section>
 
