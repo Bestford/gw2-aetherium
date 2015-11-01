@@ -13,6 +13,7 @@
 
     <!-- JS requirements -->
     <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/moment/moment.js"></script>
 
     <!-- Angular JS files -->
     <script src="js/app.js"></script>
@@ -20,14 +21,14 @@
   </head>
 
   <body role="document" ng-app="Gw2Aetherium" ng-controller="Main">
-    <div class="container">
+    <main class="container">
 
-      <div class="page-header">
+      <header class="page-header">
         <h1>Guild Wars 2: Aetherium Calculator</h1>
-      </div>
+      </header>
 
       <!-- Aetherium quantities input fields -->
-      <form class="form-horizontal" name="form">
+      <form class="form-horizontal page-header" name="form">
 
         <div class="form-group large has-feedback" ng-class="{'has-success': form.current.$valid}">
           <label class="col-sm-4 control-label" for="aetherium-current">Current Aetherium</label>
@@ -72,47 +73,58 @@
 
       </form>
 
+      <!-- Date and time calculation outputs -->
+      <section class="calculations page-header" ng-if="targetDate">
+
+        <h4>Your guild will have enough Aetherium on:</h4>
+        <h2>{{targetFormat}}</h2>
+
+      </section>
+
       <!-- Explanation / FAQ -->
+      <section>
 
-      <h3>What is <a href="http://wiki.guildwars2.com/wiki/Aetherium">Aetherium</a>?</h3>
-      <p>
-        Aetherium is a <a href="http://wiki.guildwars2.com/wiki/Guild">guild</a>
-        resource that is needed to make many of the available
-        <a href="http://wiki.guildwars2.com/wiki/Guild_hall">guild hall</a> upgrades.
-        It effectively acts as a time gate, preventing a guild from unlocking many large upgrades
-        in quick succession.
-      </p>
-      <p>
-        Aetherium can be viewed in the <em>Guild</em> window, on the <em>Main</em>
-        tab, in the bottom-right corner.
-      </p>
+        <h3>What is <a href="http://wiki.guildwars2.com/wiki/Aetherium">Aetherium</a>?</h3>
+        <p>
+          Aetherium is a <a href="http://wiki.guildwars2.com/wiki/Guild">guild</a>
+          resource that is needed to make many of the available
+          <a href="http://wiki.guildwars2.com/wiki/Guild_hall">guild hall</a> upgrades.
+          It effectively acts as a time gate, preventing a guild from unlocking many large upgrades
+          in quick succession.
+        </p>
+        <p>
+          Aetherium can be viewed in the <em>Guild</em> window, on the <em>Main</em>
+          tab, in the bottom-right corner.
+        </p>
 
-      <h3>How is Aetherium earned?</h3>
-      <p>
-        Aetherium is earned by the guild at a fixed rate, initially 1 per 60 seconds. No actions
-        are required by the guild members to generate Aetherium.
-      </p>
-      <p>
-        The rate at which Aetherium is earned can be increased by unlocking the
-        <a href="http://wiki.guildwars2.com/wiki/Mining_Rate_1">Mining Rate 1</a> and
-        <a href="http://wiki.guildwars2.com/wiki/Mining_Rate_2">Mining Rate 2</a>
-        upgrades, available after unlocking
-        <a href="http://wiki.guildwars2.com/wiki/Mine_Excavation_1">Mine Excavation 1</a>.
-      </p>
-      <p>
-        There is a cap on the amount of Aetherium that can be stored at once; Aetherium production
-        stops completely once this cap is reached. This can also prevent a guild from unlocking
-        an upgrade that requires more Aetherium than the current cap.
-      </p>
-      <p>
-        The guild's Aetherium capacity can be increased by unlocking <thead>
-        <a href="http://wiki.guildwars2.com/wiki/Aetherium_Capacity_1">Aetherium Capacity 1</a> and
-        <a href="http://wiki.guildwars2.com/wiki/Aetherium_Capacity_2">Aetherium Capacity 2</a>
-        upgrades, available after unlocking
-        <a href="http://wiki.guildwars2.com/wiki/Mine_Excavation_1">Mine Excavation 1</a>.
-      </p>
+        <h3>How is Aetherium earned?</h3>
+        <p>
+          Aetherium is earned by the guild at a fixed rate, initially 1 per 60 seconds. No actions
+          are required by the guild members to generate Aetherium.
+        </p>
+        <p>
+          The rate at which Aetherium is earned can be increased by unlocking the
+          <a href="http://wiki.guildwars2.com/wiki/Mining_Rate_1">Mining Rate 1</a> and
+          <a href="http://wiki.guildwars2.com/wiki/Mining_Rate_2">Mining Rate 2</a>
+          upgrades, available after unlocking
+          <a href="http://wiki.guildwars2.com/wiki/Mine_Excavation_1">Mine Excavation 1</a>.
+        </p>
+        <p>
+          There is a cap on the amount of Aetherium that can be stored at once; Aetherium production
+          stops completely once this cap is reached. This can also prevent a guild from unlocking
+          an upgrade that requires more Aetherium than the current cap.
+        </p>
+        <p>
+          The guild's Aetherium capacity can be increased by unlocking <thead>
+          <a href="http://wiki.guildwars2.com/wiki/Aetherium_Capacity_1">Aetherium Capacity 1</a> and
+          <a href="http://wiki.guildwars2.com/wiki/Aetherium_Capacity_2">Aetherium Capacity 2</a>
+          upgrades, available after unlocking
+          <a href="http://wiki.guildwars2.com/wiki/Mine_Excavation_1">Mine Excavation 1</a>.
+        </p>
 
-    </div>
+      </section>
+
+    </main>
   </body>
 
 </html>

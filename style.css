@@ -17,3 +17,12 @@ input::-webkit-inner-spin-button {
 .calculate {
   width: 100%;
 }
+
+/* Date and time output calculations */
+.calculations h2 {
+  margin-top: 5px;
+}
+
+.calculations h4 {
+  margin-bottom: 5px;
+}
