@@ -81,8 +81,9 @@
         <h4>Your guild will have enough Aetherium on:</h4>
         <h2>{{dateDisplay}}</h2>
 
-        <h4>That's in:</h4>
-        <h2>{{dateCountdown}}</h2>
+        <h4>That's<span ng-hide="dateDone"> in</span>:</h4>
+        <h2 ng-hide="dateDone">{{dateCountdown}}</h2>
+        <h2 class="done" ng-show="dateDone">Now!</h2>
 
       </section>
 

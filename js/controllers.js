@@ -4,14 +4,15 @@ angular
   .module('Gw2Aetherium.controllers', [])
 
   // Main and only controller
-  .controller('Main', function mainController($scope) {
+  .controller('Main', function mainController($interval, $scope) {
 
     // Define scope variables. Undefined variables prevent hoisiting
     $scope.current;
     $scope.target;
     $scope.date;
     $scope.dateDisplay;
-    $scope.targetCountdown;
+    $scope.dateCountdown;
+    $scope.dateDone = false;
     $scope.rate = '60';
 
     // ngPattern Regex used to prevent use of floats by the user
@@ -39,6 +40,30 @@ angular
       // Display the target datetime and countdown
       $scope.date          = moment().add(seconds, 'seconds');
       $scope.dateDisplay   = $scope.date.format(format);
-      $scope.dateCountdown = $scope.date.countdown().toString();
+
+      getCountdown();
     };
+
+    /**
+     * Use the countdown library to turn the target date moment into a human readable string
+     * If the date is now or in the past, show custom text and set $scope.dateDone to true
+     */
+    var getCountdown = function getCountdown() {
+      if ($scope.date) {
+        $scope.dateCountdown = $scope.date.countdown().toString();
+
+        // Calculate the time difference in seconds and set dateDone appropriately
+        var seconds = Math.round($scope.date.diff(moment()) / 1000);
+        $scope.dateDone = seconds < 1;
+
+        console.log(seconds, $scope.dateDone);
+
+      } else {
+        $scope.dateCountdown = null;
+      }
+    };
+
+    $interval(function countdownInterval() {
+      getCountdown();
+    }, 1000);
   });

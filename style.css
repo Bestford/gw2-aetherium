@@ -27,3 +27,8 @@ input::-webkit-inner-spin-button {
   margin-top: 25px;
   margin-bottom: 5px;
 }
+
+/* Countdown date completed */
+.calculations .done {
+  color: #3c763d;
+}
