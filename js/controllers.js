@@ -56,8 +56,6 @@ angular
         var seconds = Math.round($scope.date.diff(moment()) / 1000);
         $scope.dateDone = seconds < 1;
 
-        console.log(seconds, $scope.dateDone);
-
       } else {
         $scope.dateCountdown = null;
       }
