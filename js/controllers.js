@@ -19,7 +19,7 @@ angular
     $scope.numberValidation = /^\d*$/;
 
     // Maximum Aetherium capacity. Change this if a future update adds a new capacity upgrade
-    $scope.max = 3000;
+    $scope.max = 20000;
 
     /**
      * Calculate when the target Aetherium will be generated based on the current and mining rate
